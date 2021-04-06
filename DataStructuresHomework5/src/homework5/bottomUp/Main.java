@@ -1,4 +1,4 @@
-package homework5.recursive;
+package homework5.bottomUp;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
