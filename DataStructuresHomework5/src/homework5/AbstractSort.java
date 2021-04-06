@@ -3,7 +3,7 @@ package homework5;
 public abstract class AbstractSort {
 	@SuppressWarnings("rawtypes") 
 	public static boolean less(Comparable v, Comparable w) {
-        if (v.compareTo(w) == 1) {
+        if (v.compareTo(w) == -1) {
             return true;
         } else {
             return false;

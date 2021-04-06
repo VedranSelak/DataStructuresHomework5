@@ -11,7 +11,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		//initializing the array where we are going to store the data
-		IPAddress[] ipAddresses = new IPAddress[4637053];
+		IPAddress[] ipAddresses = new IPAddress[100000];
 		//initializing the buffered reader to enable reading from the file
 		BufferedReader br = new BufferedReader(new FileReader("src/data.csv"));
 		int i = 0;
@@ -20,6 +20,7 @@ public class Main {
 			//replacing occurrences of ", " so that we can split the line by using ","
 			//this is done because for example there is a string "KOREA, REPUBLIC OF",... so we are first removing the commas inside the string
 			row = row.replace(", ", " ");
+			row = row.replace("'", "");
 		    String[] data = row.split(",");
 		    //making a IPAddress object and adding it to the array
 		    //the string that we are getting from the file looks like this ""FRANCE""
@@ -37,7 +38,7 @@ public class Main {
 		long start = System.currentTimeMillis();
 		
 		//sorting the array using recursive merge sort
-		MergeSort.sort(ipAddresses);
+		MergeSort.sort(ipAddresses, new ByCity());
 		
 		System.out.println(System.currentTimeMillis() - start);
 		
