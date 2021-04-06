@@ -11,7 +11,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		//initializing the array where we are going to store the data
-		IPAddress[] ipAddresses = new IPAddress[100000];
+		IPAddress[] ipAddresses = new IPAddress[1000000];
 		//initializing the buffered reader to enable reading from the file
 		BufferedReader br = new BufferedReader(new FileReader("src/data.csv"));
 		int i = 0;
@@ -36,7 +36,7 @@ public class Main {
 		
 		long start = System.currentTimeMillis();
 		
-		//sorting the array using shell sort
+		//sorting the array using bottom-up merge sort
 		MergeSort.sort(ipAddresses);
 		
 		System.out.println(System.currentTimeMillis() - start);

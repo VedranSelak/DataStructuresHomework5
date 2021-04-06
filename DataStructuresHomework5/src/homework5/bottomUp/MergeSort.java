@@ -1,11 +1,19 @@
 package homework5.bottomUp;
 
 import homework5.AbstractSort;
-import homework5.IPAddress;
 
 public class MergeSort extends AbstractSort{
+	
 	public static void sort(Comparable[] array) {
+		Comparable[] aux = new Comparable[array.length];
 		
+		for (int size=1; size<array.length; size *= 2) {
+			for (int lo=0; lo<array.length-size; lo += 2 * size) {
+				int mid = lo + size - 1;
+				int hi = Math.min(lo + 2 * size - 1, array.length - 1);
+				merge(array, aux, lo, mid, hi);
+			}
+		}
 	}
 	
 	public static void merge(Comparable[] array, Comparable[] aux, int lo, int mid, int hi) {
@@ -26,4 +34,5 @@ public class MergeSort extends AbstractSort{
 			}
 		}
 	}
+	
 }
